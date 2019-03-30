@@ -4,16 +4,41 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
     <title>products</title>
   </head>
   <body>
     <nav id="store-app-nav">
       <ul id="nav-list">
-        <li class="nav logo">STORE APP</li>
-        <li class="nav stores-nav"> <a href="{{ url_for('stores.stores') }}">STORES</a></li>
-        <li class="nav top-stores-nav"><a href="{{ url_for('stores.top_stores') }}">TOP STORES</a></li>
-        <li class="nav add-store-nav"><a href="{{ url_for('stores.add_store') }}">ADD STORE</a></li>
+        <li class="nav logo">
+          <a href="/">STORE APP </a>
+        </li>
+        <li class="nav stores-nav">
+          <a href="{{ url_for('stores.stores') }}">
+            <i class="material-icons">
+              store
+            </i>
+            <span>STORE</span>
+          </a>
+        </li>
+        <li class="nav top-stores-nav">
+          <a href="{{ url_for('stores.top_stores') }}">TOP STORES</a>
+        </li>
+        <li class="nav add-store-nav">
+          <a href="{{ url_for('stores.add_store') }}">
+            <i class="material-icons">
+              add_box
+            </i>
+            <span>ADD STORE</span>
+          </a>
+        </li>
       </ul>
     </nav>
     <main>

@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+#store-app-nav {
+  border: solid 1px #000000;
+}
