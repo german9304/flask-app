@@ -1,8 +1,8 @@
 from flask import Flask
-from .views.main import index
+from .views.main import homeBP
 
 
 def create_app():
     app = Flask(__name__)
-    app.add_url_rule('/', 'index', index)
+    app.register_blueprint(homeBP)
     return app
