@@ -22,26 +22,42 @@
         </li>
         <li class="nav stores-nav">
           <a href="{{ url_for('stores.stores') }}">
-            <i class="material-icons">
-              store
-            </i>
+            <span class="nav-icon store-icon">
+              <i class="material-icons">
+                store
+              </i>
+            </span>
             <span>STORE</span>
           </a>
         </li>
         <li class="nav top-stores-nav">
           <a href="{{ url_for('stores.top_stores') }}">
-            <i class="material-icons">
-              star
-            </i>
+            <span class="nav-icon star-icon">
+              <i class="material-icons">
+                star
+              </i>
+            </span>
             <span> TOP STORES</span>
           </a>
         </li>
         <li class="nav add-store-nav">
           <a href="{{ url_for('stores.add_store') }}">
-            <i class="material-icons">
-              add_box
-            </i>
+            <span class="nav-icon add-icon">
+              <i class="material-icons">
+                add_box
+              </i>
+            </span>
             <span>ADD STORE</span>
+          </a>
+        </li>
+        <li class="nav add-store-nav">
+          <a href="#">
+            <span>REGISTER</span>
+          </a>
+        </li>
+        <li class="nav add-store-nav">
+          <a href="#">
+            <span>LOGIN</span>
           </a>
         </li>
       </ul>
@@ -49,6 +65,6 @@
     <main>
       {% block main %} {% endblock %}
     </main>
-      {% block section %} {% endblock %}
+    {% block section %} {% endblock %}
   </body>
 </html>

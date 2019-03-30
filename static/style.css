@@ -15,3 +15,10 @@ li {
 #store-app-nav {
   border: solid 1px #000000;
 }
+
+#nav-list {
+  display: flex;
+}
+#nav-list > * {
+  border: solid 1px #000000;
+}
