@@ -29,7 +29,12 @@
           </a>
         </li>
         <li class="nav top-stores-nav">
-          <a href="{{ url_for('stores.top_stores') }}">TOP STORES</a>
+          <a href="{{ url_for('stores.top_stores') }}">
+            <i class="material-icons">
+              star
+            </i>
+            <span> TOP STORES</span>
+          </a>
         </li>
         <li class="nav add-store-nav">
           <a href="{{ url_for('stores.add_store') }}">
