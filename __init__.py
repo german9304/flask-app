@@ -1,10 +1,8 @@
 from flask import Flask
+from .views.main import index
 
 
 def create_app():
     app = Flask(__name__)
-    @app.route('/')
-    def hello_world():
-        return 'hello shop cart'
-
+    app.add_url_rule('/', 'index', index)
     return app
