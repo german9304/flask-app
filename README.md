@@ -2,4 +2,6 @@
 
 ## Tools:
 
+- Flask
 - python
+- postgreSQL
