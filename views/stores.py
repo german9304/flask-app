@@ -1,13 +1,25 @@
-from flask import Blueprint, request
+from flask import (
+    Blueprint, request, render_template
+)
 
 """Init flask blue print"""
-pb = Blueprint('products', __name__)
+storesBp = Blueprint('stores', __name__)
 
 
-@pb.route('/')
-def create_product():
-    req = request.json
-    return {'product': req}
+@storesBp.route('/')
+def stores():
+    """Route for stores."""
+    return render_template('stores/stores.html')
 
+@storesBp.route('/create-store/')
+def create_store():
+    """Create store route."""
+    return render_template('stores/createstore.html')
 
+@storesBp.route('/add-store/')
+def add_store():
+    return render_template('stores/store.html')
 
+@storesBp.route('/top-stores/')
+def top_stores():
+    return render_template('stores/topstores.html')
