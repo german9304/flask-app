@@ -2,29 +2,34 @@ from flask_sqlalchemy import SQLAlchemy
 from .dbconfig import POSTGRES
 
 
-class SqlAlchemy():
+class Database():
     """Database configuration."""
     
-    def __init__(self, db = '', uri = ''):
-        self.db = db
-        self.uri = uri
+    def __init__(self):
+        self.database = SQLAlchemy()
+        self.uri = ''
 
     def init_db(self, app):
-        url = self.init_db_info(POSTGRES)
-        app.config['SQLALCHEMY_DATABASE_URI'] = url
+        """Initialize db."""
+        self.init_db_info(POSTGRES)
+        app.config['SQLALCHEMY_DATABASE_URI'] = self.uri
         app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-        self.db = SQLAlchemy(app)
+        self.database.init_app(app)
 
-    def init_db_info(self, db):
-        USER = POSTGRES['USER']
-        PWD = POSTGRES['PW']
-        DB = POSTGRES['DB']
-        url = f'postgresql://{USER}:{PWD}@localhost/{DB}'
+    def init_db_info(self, postgres):
+        """Init database info."""
+        user = postgres['USER']
+        pwd = postgres['PW']
+        database = postgres['DB']
+        url = f'postgresql://{user}:{pwd}@localhost/{database}'
+        self.uri = url
         return url
 
     def get_db(self):
-        return self.db
+        """Returns database."""
+        return self.database
+
+database = Database()
 
 
-db = SqlAlchemy()
 

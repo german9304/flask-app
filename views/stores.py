@@ -2,6 +2,8 @@ from flask import (
     Blueprint, request, render_template
 )
 from .data import PRODUCTS
+from ..models.db import database
+from ..models.user import Users
 
 """Init flask blue print"""
 storesBp = Blueprint('stores', __name__)
