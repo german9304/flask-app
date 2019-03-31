@@ -15,10 +15,10 @@ def stores():
     }
     return render_template('stores/stores.html', **context)
 
-@storesBp.route('/create-store/')
-def create_store():
-    """Create store route."""
-    return render_template('stores/createstore.html')
+@storesBp.route('/create-product/')
+def create_product():
+    """Create product route."""
+    return render_template('stores/createproduct.html')
 
 @storesBp.route('/add-store/')
 def add_store():

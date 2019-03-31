@@ -1,0 +1,32 @@
+{% extends 'base.html' %} 
+{% block main %}
+<section id="create-product">
+  <form action="" id="create-form">
+    <header>
+      <h1>Add Product</h1>
+    </header>
+    <div class="form form-group-name">
+      <label for="product-name">Name</label>
+      <input id="product-name" name="name" type="text" />
+    </div>
+    <div class="form form-group-quantity">
+      <label for="product-quantity">Quantity</label>
+      <input type="text" id="product-quantity" name="quantity" />
+    </div>
+    <div class="form form-group-description">
+      <label for="product-description">Description</label>
+      <textarea
+        type="text"
+        rows="5"
+        cols="33"
+        id="product-description"
+        name="description"
+      >
+      </textarea>
+    </div>
+    <div class="form form-group-btn">
+      <button id="create-btn">submit</button>
+    </div>
+  </form>
+</section>
+{% endblock %}

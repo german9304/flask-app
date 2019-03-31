@@ -3,7 +3,9 @@
 
 :root {
   --color-fontw: white;
+  --store-color: white;
   --font-nav: 'Raleway', sans-serif;
+  --store-header: 'Archivo Black', sans-serif;
 }
 * {
   box-sizing: border-box;
