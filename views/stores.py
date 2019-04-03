@@ -1,12 +1,14 @@
 from flask import (
     Blueprint, request, render_template
 )
+from ..models import (
+    db, user, product
+)
 from .data import PRODUCTS
-from ..models.db import database
-from ..models.user import Users
 
 """Init flask blue print"""
 storesBp = Blueprint('stores', __name__)
+
 
 @storesBp.route('/')
 @storesBp.route('/stores/')
@@ -15,7 +17,10 @@ def stores():
     context = {
         'products': PRODUCTS
     }
+    # for item in product.Product.query.all():
+    #     print(item.name)
     return render_template('stores/stores.html', **context)
+
 
 @storesBp.route('/create-product/', methods=['POST', 'GET'])
 def create_product():
@@ -29,9 +34,11 @@ def create_product():
 
     return render_template('stores/createproduct.html')
 
+
 @storesBp.route('/add-store/')
 def add_store():
     return render_template('stores/store.html')
+
 
 @storesBp.route('/top-stores/')
 def top_stores():
