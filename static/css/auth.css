@@ -35,3 +35,6 @@
     border: none;
     color: white;
 }
+#register-form .login {
+    background-color: rgb(101, 133, 221);
+}
