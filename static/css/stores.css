@@ -93,7 +93,13 @@
   width: 50%;
 }
 
-#create-product  input, button {
+#create-product  input {
+  padding: 10px;
+  font-size: 1rem;
+  width: 100%;
+  font-family: var(--font-store);
+}
+#create-product button {
   padding: 10px;
   font-size: 1rem;
   width: 100%;

@@ -13,6 +13,7 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='css/style.css') }}"
     />
+    {% block styles %} {% endblock %}
     <title>products</title>
   </head>
   <body>
@@ -54,12 +55,12 @@
           </a>
         </li>
         <li class="nav add-store-nav">
-          <a href="#">
+          <a href="{{ url_for('auth.register') }}">
             <span>REGISTER</span>
           </a>
         </li>
         <li class="nav add-store-nav">
-          <a href="#">
+          <a href="{{ url_for('auth.login') }}">
             <span>LOGIN</span>
           </a>
         </li>
