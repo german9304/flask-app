@@ -8,9 +8,10 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Montserrat|Oswald|Raleway" rel="stylesheet">
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='style.css') }}"
+      href="{{ url_for('static', filename='css/style.css') }}"
     />
     <title>products</title>
   </head>
@@ -18,30 +19,48 @@
     <nav id="store-app-nav">
       <ul id="nav-list">
         <li class="nav logo">
-          <a href="/">STORE APP </a>
+          <a href="/">
+            <span> STORE APP </span>
+          </a>
         </li>
         <li class="nav stores-nav">
           <a href="{{ url_for('stores.stores') }}">
-            <i class="material-icons">
-              store
-            </i>
+            <span class="nav-icon store-icon">
+              <i class="material-icons">
+                store
+              </i>
+            </span>
             <span>STORE</span>
           </a>
         </li>
         <li class="nav top-stores-nav">
           <a href="{{ url_for('stores.top_stores') }}">
-            <i class="material-icons">
-              star
-            </i>
-            <span> TOP STORES</span>
+            <span class="nav-icon star-icon">
+              <i class="material-icons">
+                star
+              </i>
+            </span>
+            <span> TOP PRODUCTS</span>
           </a>
         </li>
         <li class="nav add-store-nav">
-          <a href="{{ url_for('stores.add_store') }}">
-            <i class="material-icons">
-              add_box
-            </i>
-            <span>ADD STORE</span>
+          <a href="{{ url_for('stores.create_product') }}">
+            <span class="nav-icon add-icon">
+              <i class="material-icons">
+                add_box
+              </i>
+            </span>
+            <span>ADD PRODUCT</span>
+          </a>
+        </li>
+        <li class="nav add-store-nav">
+          <a href="#">
+            <span>REGISTER</span>
+          </a>
+        </li>
+        <li class="nav add-store-nav">
+          <a href="#">
+            <span>LOGIN</span>
           </a>
         </li>
       </ul>
@@ -49,6 +68,6 @@
     <main>
       {% block main %} {% endblock %}
     </main>
-      {% block section %} {% endblock %}
+    {% block section %} {% endblock %}
   </body>
 </html>
