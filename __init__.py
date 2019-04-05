@@ -11,4 +11,5 @@ def create_app():
     database.init_db(app)
     app.register_blueprint(auth.authBp)
     app.register_blueprint(stores.storesBp)
+    app.add_url_rule('/', endpoint='home')
     return app

@@ -1,5 +1,5 @@
 from flask import (
-    Blueprint, request, render_template, url_for, session
+    Blueprint, request, render_template, url_for, session, redirect
 )
 from ..models import (
     db, user, product
@@ -19,6 +19,9 @@ def register():
         username = request.form['username']
         password = request.form['password']
         print(f'username:{username} email:{email} password:{password}')
+        User = user.Users(email=email, username=username, password=password)
+        newUser = db.database.insert(User)
+        return redirect(url_for('home'))
 
     return render_template('auth/register.html')
 
