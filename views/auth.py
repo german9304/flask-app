@@ -1,5 +1,5 @@
 from flask import (
-    Blueprint, request, render_template
+    Blueprint, request, render_template, url_for, session
 )
 from ..models import (
     db, user, product
@@ -10,9 +10,16 @@ from ..models import (
 authBp = Blueprint('auth', __name__)
 
 
-@authBp.route('/register/')
+@authBp.route('/register/', methods=['GET', 'POST'])
 def register():
-    print('register')
+    """This function registers user."""
+    if request.method == 'POST':
+        print(request.form)
+        email = request.form['email']
+        username = request.form['username']
+        password = request.form['password']
+        print(f'username:{username} email:{email} password:{password}')
+
     return render_template('auth/register.html')
 
 @authBp.route('/login/')
