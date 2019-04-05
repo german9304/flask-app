@@ -20,14 +20,21 @@ def register():
         password = request.form['password']
         print(f'username:{username} email:{email} password:{password}')
         User = user.Users(email=email, username=username, password=password)
-        newUser = db.database.insert(User)
-        return redirect(url_for('home'))
+        # newUser = db.database.insert(User)
+        # return redirect(url_for('home'))
 
     return render_template('auth/register.html')
 
 @authBp.route('/login/')
 def login():
-    email = request.form['email']
-    username = request.form['username']
+    # email = request.form['email']
+    # username = request.form['username']
     print('register')
     return render_template('auth/login.html')
+
+@authBp.route('/logout/')
+def logout():
+    # email = request.form['email']
+    # username = request.form['username']
+    print('register')
+    return redirect(url_for('home'))
