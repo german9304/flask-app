@@ -27,5 +27,7 @@ def register():
 
 @authBp.route('/login/')
 def login():
+    email = request.form['email']
+    username = request.form['username']
     print('register')
     return render_template('auth/login.html')
