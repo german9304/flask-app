@@ -1,4 +1,11 @@
 {% extends 'base.html' %} 
+
+{% block styles %} 
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/stores.css') }}"
+/>
+{% endblock %}
 {% block main %}
 <article id="store">
   <section id="store-products-section">

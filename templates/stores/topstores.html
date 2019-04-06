@@ -1,6 +1,21 @@
 {% extends 'base.html' %} 
 
+{% block styles %} 
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/topstores.css') }}"
+/>
+{% endblock %}
 
 {% block main %} 
-  <h1>TOP STORE VIEW</h1>
+  <section id="top-products">
+    <section id="products">
+      {% for product in products %}
+        <section class="product">
+          <h1>{{ product.name }}</h1>
+          <p>{{ product.likes }}</p>
+        </section>
+      {% endfor %}
+    </section>
+  </section>
 {% endblock %}

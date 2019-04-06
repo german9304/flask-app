@@ -1,4 +1,10 @@
 {% extends 'base.html' %} 
+{% block styles %} 
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/stores.css') }}"
+/>
+{% endblock %}
 {% block main %}
 <section id="create-product">
   <form method="post" id="create-form">

@@ -4,6 +4,7 @@ from flask import (
 from ..models import (
     db, user, product
 )
+from sqlalchemy import desc
 from .data import PRODUCTS
 
 """Init flask blue print"""
@@ -40,6 +41,12 @@ def add_store():
     return render_template('stores/store.html')
 
 
-@storesBp.route('/top-stores/')
-def top_stores():
-    return render_template('stores/topstores.html')
+@storesBp.route('/top-products/', methods=['GET'])
+def top_products():
+    """Top 5 products by like."""
+    products = product.Product.query. \
+        order_by(desc(product.Product.likes)).all()[:6]
+    context = {
+        'products': products
+    }
+    return render_template('stores/topstores.html', **context)

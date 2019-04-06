@@ -1,0 +1,9 @@
+#top-products {
+    border: solid 1px black;
+    display: flex;
+    justify-content: center;
+}
+
+#top-products > * {
+    border: solid 1px red;
+}
