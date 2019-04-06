@@ -25,11 +25,23 @@ def register():
 
     return render_template('auth/register.html')
 
-@authBp.route('/login/')
+@authBp.route('/login/', methods=['GET', 'POST'])
 def login():
-    # email = request.form['email']
-    # username = request.form['username']
-    print('register')
+    """Log in User authentication."""
+    if request.method == 'POST':
+        # email = request.form['email']
+        email = request.form['email']
+        password = request.form['password']
+        # print(type(email))
+        # print(password)
+        try:
+            u = user.Users.query.filter(user.Users.email==email) \
+            .one()
+            if password == u.getPassword():
+                print('equal passwords')
+        except Exception as e:
+            print(e)
+        
     return render_template('auth/login.html')
 
 @authBp.route('/logout/')
