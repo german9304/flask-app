@@ -39,6 +39,9 @@ def login():
             .one()
             if password == u.getPassword():
                 print('equal passwords')
+                print(f'user id {u.getId()}')
+                session['username'] = u.getId()
+                print(session['username'])
         except Exception as e:
             print(e)
         
@@ -48,5 +51,6 @@ def login():
 def logout():
     # email = request.form['email']
     # username = request.form['username']
+    session.pop('username', None)
     print('register')
     return redirect(url_for('home'))

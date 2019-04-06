@@ -1,5 +1,5 @@
 from flask import (
-    Blueprint, request, render_template
+    Blueprint, request, render_template, session
 )
 from ..models import (
     db, user, product
@@ -15,7 +15,7 @@ storesBp = Blueprint('stores', __name__)
 def stores():
     """Route for stores."""
     context = {
-        'products': PRODUCTS
+        'products': product.Product.query.all()
     }
     # for item in product.Product.query.all():
     #     print(item.name)
