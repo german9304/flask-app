@@ -28,6 +28,16 @@ class Database():
     def get_db(self):
         """Returns database."""
         return self.database
+    
+    def insert(self, row):
+        db = self.get_db()
+        try:
+            db.session.add(row)
+            db.session.commit()
+        except Exception as e:
+            print(e)
+            print('ann error ocurred')
+        return row
 
 database = Database()
 

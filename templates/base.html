@@ -54,16 +54,24 @@
             <span>ADD PRODUCT</span>
           </a>
         </li>
-        <li class="nav add-store-nav">
-          <a href="{{ url_for('auth.register') }}">
-            <span>REGISTER</span>
-          </a>
-        </li>
-        <li class="nav add-store-nav">
-          <a href="{{ url_for('auth.login') }}">
-            <span>LOGIN</span>
-          </a>
-        </li>
+        {% if session['username'] %}
+          <li class="nav add-store-nav">
+            <a href="{{ url_for('auth.logout') }}">
+              <span>LOGOUT</span>
+            </a>
+          </li>
+        {% else %}
+          <li class="nav add-store-nav">
+            <a href="{{ url_for('auth.register') }}">
+              <span>REGISTER</span>
+            </a>
+          </li>
+          <li class="nav add-store-nav">
+            <a href="{{ url_for('auth.login') }}">
+              <span>LOGIN</span>
+            </a>
+          </li>
+        {% endif %}
       </ul>
     </nav>
     <main>

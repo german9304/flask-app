@@ -24,6 +24,7 @@
     padding: 8px;
     font-size: 1rem;
     font-family: var(--font-style);
+    border: solid 1px rgba(0, 0, 0, 0.1)
 }
 #register-form button {
     width: 100%;
@@ -37,4 +38,9 @@
 }
 #register-form .login {
     background-color: rgb(101, 133, 221);
+}
+
+label {
+    display: block;
+    margin: 0 0 5px 0;
 }

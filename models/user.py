@@ -16,5 +16,19 @@ class Users(model.Model):
     password = model.Column(model.String(20), nullable=False, default='test')
     products = model.relationship('Product', backref='users',  cascade="all, delete" ,lazy=True)
 
-    def get_products(self):
+    def getProducts(self):
         return self.products
+    
+    def getPassword(self):
+        return self.password
+    
+    def getUsername(self):
+        return self.username
+
+    def getPorducts(self):
+        return self.products
+
+    def getId(self):
+        return self.id
+
+    
