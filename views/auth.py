@@ -20,8 +20,8 @@ def register():
         password = request.form['password']
         print(f'username:{username} email:{email} password:{password}')
         User = user.Users(email=email, username=username, password=password)
-        # newUser = db.database.insert(User)
-        # return redirect(url_for('home'))
+        newUser = db.database.insert(User)
+        return redirect(url_for('home'))
 
     return render_template('auth/register.html')
 
@@ -42,6 +42,7 @@ def login():
                 print(f'user id {u.getId()}')
                 session['username'] = u.getId()
                 print(session['username'])
+                return redirect(url_for('home'))
         except Exception as e:
             print(e)
         
