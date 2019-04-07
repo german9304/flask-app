@@ -16,9 +16,9 @@
     margin: 0;
 }
 .product > * {
-    border: solid 1px var(--border-color-products);
+    border-right: solid 1px var(--border-color-products);
     font-family: var(--font-store);
-    padding: 5px  5px;
+    padding: 10px;
 }
 
 .product p {
@@ -42,7 +42,7 @@
     flex: 1;
     border: solid 1px  var(--border-color-products);
     font-family: var(--store-header);
-    padding: 8px 5px;
+    padding: 8px;
 }
 
 #products{
