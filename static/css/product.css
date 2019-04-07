@@ -1,14 +1,17 @@
 #product {
     /* border: solid 1px black; */
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
 }
 
 #selected-product {
     background: #fff;
     margin: 30px 0 30px 0;
-    width: 400px;
+    width: 500px;
     padding: 30px;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.1);
 }
 
 #product-header > * {
@@ -32,5 +35,35 @@
     margin: 0 0 30px 0;
 }
 textarea{
+    padding: 6px 8px;
     width: 100%;
+    font-size: 1rem;
+}
+
+.btn {
+    width: 100%;
+    border: none;
+    font-family: var(--font-store);
+    background: #2ECC40;
+    color: #ffffff;
+    font-size: 1rem;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.likes{
+    font-family: var(--font-nav);
+    font-weight: bolder;
+    font-size: 1.2rem;
+    padding: 0;
+}
+
+#submit-review{
+    display: flex;
+    /* border: solid 1px red; */
+    padding: 5px;
+}
+#submit-review > * {
+    margin: 0;
+    flex: 1;
 }

@@ -15,13 +15,16 @@
       </section> -->
       <form action="" id="review-comments">
           <section class="review-comments-textarea">
-            <textarea name="comment" id="" cols="30" rows="4"></textarea>
+            <textarea name="comment" id="" cols="30" rows="3"></textarea>
           </section>
           <section id="submit-review">
-            <button type="submit">Submit review</button>
             <p class="likes">{{product.likes}} likes</p>
+            <button type="submit" class="btn">Submit review</button>
           </section>
       </form>
+    </section>
+    <section id="product-reviews">
+      <p>product reviews</p>
     </section>
   </section>
 {% endblock %}
