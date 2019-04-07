@@ -4,6 +4,7 @@
   --store-color: white;
   --font-nav: 'Raleway', sans-serif;
   --store-header: 'Archivo Black', sans-serif;
+  --font-store: 'Montserrat', sans-serif;
 }
 * {
   box-sizing: border-box;
@@ -66,4 +67,5 @@ li {
   font-size: 2rem;
   color: var(--color-fontw);
 }
+
 
