@@ -25,11 +25,11 @@
       <section id="product-reviews">
         {% for review in reviews %}
         <section class="review-content">
-            <section class="review">
-                <p>{{review.get_comment()}}</p>
-            </section>
             <section class="user-review">
               <p>{{review.get_user().get_username()}}</p>
+            </section>
+            <section class="review">
+                <p>{{review.get_comment()}}</p>
             </section>
         </section>
         {% endfor %}
