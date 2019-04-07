@@ -50,3 +50,18 @@ def top_products():
         'products': products
     }
     return render_template('stores/topstores.html', **context)
+
+@storesBp.route('/product/<int:product_id>/', methods=['GET'])
+def get_product(product_id):
+    print(f'product id is {product_id}')
+    try:
+        selected_product = product.Product.query.filter(product.Product.id == product_id) \
+            .first()
+        context = {
+            'product': selected_product
+        }
+        print(selected_product.name)
+    except Exception as e:
+        print('An error ocurred')
+        print(e)
+    return render_template('stores/product.html', **context)

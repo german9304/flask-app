@@ -13,7 +13,11 @@
     <section id="products">
       {% for product in products %}
       <section class="product">
-        <h1 class="product-section-header">{{ product.name }}</h1>
+        <h1 class="product-section-header">
+          <a class="select-product" href="/product/{{product.id}}">
+            <span>{{ product.name }}</span>
+          </a>
+        </h1>
         <section class="pdct content">
           <p class="information">{{ product.description }}</p>
         </section>
