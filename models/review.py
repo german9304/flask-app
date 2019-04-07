@@ -25,4 +25,10 @@ class Reviews(model.Model):
     created_on = model.Column(model.DateTime, default=date.today(), nullable=False)
     user_parent = model.relationship('Users', back_populates='reviews_assoc')
     product_parent = model.relationship('Product', back_populates='reviews_assoc')
+
+    def get_comment(self):
+        return self.comment
+
+    def get_user(self):
+        return self.user_parent
     

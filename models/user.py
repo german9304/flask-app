@@ -22,19 +22,19 @@ class Users(model.Model):
     likes_assoc = model.relationship('Likes', back_populates='user_parent')
     reviews_assoc = model.relationship('Reviews', back_populates='user_parent')
 
-    def getProducts(self):
+    def get_products(self):
         return self.products
     
-    def getPassword(self):
+    def get_password(self):
         return self.password
     
-    def getUsername(self):
+    def get_username(self):
         return self.username
 
-    def getPorducts(self):
+    def get_porducts(self):
         return self.products
 
-    def getId(self):
+    def get_Id(self):
         return self.id
 
     

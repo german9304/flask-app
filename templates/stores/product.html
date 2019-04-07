@@ -22,9 +22,18 @@
             <button type="submit" class="btn">Submit review</button>
           </section>
       </form>
-    </section>
-    <section id="product-reviews">
-      <p>product reviews</p>
+      <section id="product-reviews">
+        {% for review in reviews %}
+        <section class="review-content">
+            <section class="review">
+                <p>{{review.get_comment()}}</p>
+            </section>
+            <section class="user-review">
+              <p>{{review.get_user().get_username()}}</p>
+            </section>
+        </section>
+        {% endfor %}
+      </section>
     </section>
   </section>
 {% endblock %}

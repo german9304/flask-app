@@ -57,10 +57,13 @@ def get_product(product_id):
     try:
         selected_product = product.Product.query.filter(product.Product.id == product_id) \
             .first()
+        product_reviews = selected_product.get_reviews()
+        # print(product_reviews)
         context = {
-            'product': selected_product
+            'product': selected_product,
+            'reviews': product_reviews
         }
-        print(selected_product.name)
+        # print(selected_product.name)
     except Exception as e:
         print('An error ocurred')
         print(e)
