@@ -24,7 +24,8 @@
       /* border: solid 1px black; */
       grid-auto-rows: 230px;
   }
-
+  
+ 
   #products > * {
     padding: 20px;
     background: white;
@@ -54,13 +55,25 @@
       margin: 0;
   }
 
-  .product h1{
+  /* .product h1{
     font-family: 'Archivo Black', sans-serif;
     font-size: 1.6rem;
     padding: 5px;
     margin: 0;
+} */
+.product .product-section-header {
+  font-size: 1.6rem;
+  font-family: 'Archivo Black', sans-serif;
+  /* border: solid 1px black; */
+  background: #FF851B;
+  padding: 10px;
+  margin: 0;
+  color: #fff;
 }
 
+.product:hover{
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.5);
+}
 #store-products-footer{
     font-size: 2rem;
     font-family: var(--font-store);
