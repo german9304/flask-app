@@ -55,8 +55,10 @@ def top_products():
 def get_product(product_id):
     print(f'product id is {product_id}')
     try:
-        selected_product = product.Product.query.filter(product.Product.id == product_id) \
-            .first()
+        # selected_product = product.Product.query.filter(product.Product.id == product_id) \
+        #     .first()
+        selected_product = product.Product.query.get(product_id)
+
         product_reviews = selected_product.get_reviews()
         # print(product_reviews)
         context = {

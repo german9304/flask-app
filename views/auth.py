@@ -37,10 +37,10 @@ def login():
         try:
             u = user.Users.query.filter(user.Users.email==email) \
             .one()
-            if password == u.getPassword():
+            if password == u.get_password():
                 print('equal passwords')
-                print(f'user id {u.getId()}')
-                session['username'] = u.getId()
+                print(f'user id {u.get_Id()}')
+                session['username'] = u.get_Id()
                 print(session['username'])
                 return redirect(url_for('home'))
         except Exception as e:

@@ -25,9 +25,9 @@ a {
 li {
   list-style: none;
 }
-/* #store-app-nav {
-  border: solid 1px #000000;
-} */
+#store-app-nav {
+ margin: 0 0 30px 0;
+}
 
 #nav-list {
   display: flex;
