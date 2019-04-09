@@ -38,6 +38,8 @@ class Database():
             print(e)
             print('ann error ocurred')
         return row
+    def commit_changes(self):
+        return self.database.session.commit()
 
 database = Database()
 

@@ -4,7 +4,7 @@ from flask import (
 from ..models import (
     db, user, product
 )
-
+import functools
 
 """Init flask blue print"""
 authBp = Blueprint('auth', __name__)
@@ -37,10 +37,10 @@ def login():
         try:
             u = user.Users.query.filter(user.Users.email==email) \
             .one()
-            if password == u.getPassword():
+            if password == u.get_password():
                 print('equal passwords')
-                print(f'user id {u.getId()}')
-                session['username'] = u.getId()
+                print(f'user id {u.get_Id()}')
+                session['username'] = u.get_Id()
                 print(session['username'])
                 return redirect(url_for('home'))
         except Exception as e:
@@ -55,3 +55,14 @@ def logout():
     session.pop('username', None)
     print('register')
     return redirect(url_for('home'))
+
+def login_required(func):
+    """Checks if user is authenticated."""
+    @functools.wraps(func)
+    def check_auth(*args, **kwargs):
+        if 'username' in session:
+             return func(*args, **kwargs)
+        else:
+            print('user is not authenticated')
+            return redirect(url_for('auth.login'))
+    return check_auth

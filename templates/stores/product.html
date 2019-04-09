@@ -1,0 +1,40 @@
+{% extends 'base.html' %} 
+{% block styles %} 
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/product.css') }}"
+/>
+{% endblock %}
+{% block main %} 
+  <section id="product">
+    <section id="selected-product">
+      <header id="product-header" >
+        <h1 >{{ product.name }}</h1>
+      </header>
+      <!-- <section id="likes-area">
+      </section> -->
+      <form action="" id="review-comments">
+          <section class="review-comments-textarea">
+            <textarea name="comment" id="" cols="30" rows="3"></textarea>
+          </section>
+          <section id="submit-review">
+            <p class="likes">{{product.likes}} likes</p>
+            <button type="submit" class="btn">Submit review</button>
+          </section>
+      </form>
+      <section id="product-reviews">
+        {% for review in reviews %}
+        <section class="review-content">
+            <section class="user-review">
+              <p>{{review.get_user().get_username()}}</p>
+            </section>
+            <section class="review">
+                <p>{{review.get_comment()}}</p>
+            </section>
+        </section>
+        {% endfor %}
+      </section>
+    </section>
+  </section>
+{% endblock %}
+

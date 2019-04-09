@@ -4,6 +4,9 @@ the class for user model
 """
 from .db import database
 from sqlalchemy.orm import backref
+# from .product import Product
+# from .likes import Likes
+from .review import Reviews
 
 model = database.get_db()
 
@@ -14,21 +17,24 @@ class Users(model.Model):
     email = model.Column(model.String(120), unique=True, nullable=False)
     username = model.Column(model.String(120), unique=True, nullable=False)
     password = model.Column(model.String(20), nullable=False, default='test')
-    products = model.relationship('Product', backref='users',  cascade="all, delete" ,lazy=True)
+    products = model.relationship('Product', backref='users',  
+        cascade="all, delete" ,lazy=True)
+    likes_assoc = model.relationship('Likes', back_populates='user_parent')
+    reviews_assoc = model.relationship('Reviews', back_populates='user_parent')
 
-    def getProducts(self):
+    def get_products(self):
         return self.products
     
-    def getPassword(self):
+    def get_password(self):
         return self.password
     
-    def getUsername(self):
+    def get_username(self):
         return self.username
 
-    def getPorducts(self):
+    def get_porducts(self):
         return self.products
 
-    def getId(self):
+    def get_Id(self):
         return self.id
 
     

@@ -1,11 +1,10 @@
 
-@import url("stores.css");
-
 :root {
   --color-fontw: white;
   --store-color: white;
   --font-nav: 'Raleway', sans-serif;
   --store-header: 'Archivo Black', sans-serif;
+  --font-store: 'Montserrat', sans-serif;
 }
 * {
   box-sizing: border-box;
@@ -21,13 +20,14 @@ ul {
 }
 a {
   text-decoration: none;
+  border: none;
 }
 li {
   list-style: none;
 }
-/* #store-app-nav {
-  border: solid 1px #000000;
-} */
+#store-app-nav {
+ margin: 0 0 30px 0;
+}
 
 #nav-list {
   display: flex;
@@ -68,4 +68,5 @@ li {
   font-size: 2rem;
   color: var(--color-fontw);
 }
+
 

@@ -1,4 +1,10 @@
 {% extends 'base.html' %} 
+{% block styles %} 
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/stores.css') }}"
+/>
+{% endblock %}
 {% block main %}
 <section id="create-product">
   <form method="post" id="create-form">
@@ -17,7 +23,7 @@
       <label for="product-description">Description</label>
       <textarea
         type="text"
-        rows="5"
+        rows="3"
         cols="33"
         id="product-description"
         name="description"
