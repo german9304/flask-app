@@ -2,13 +2,18 @@ from flask import (
     request, views, redirect, jsonify
 )
 
+from ..models import (
+    product, productSchema as pschema
+)
 
 class ProductsAPI(views.MethodView):
     """Products RESTful API."""
 
     def get(self):
         """HTTP GET method."""
-        return jsonify(name='john')
+        products = product.Product.query.all()
+        data = pschema.products_schema.dump(products)
+        return jsonify(data)
 
     def post(self):
         """HTTP POST method."""
