@@ -1,10 +1,16 @@
 from flask import (
-    Blueprint, request, render_template, session
+    Blueprint, 
+    request, 
+    render_template, 
+    session, 
+    redirect, url_for
 )
 from ..models import (
     db, user, product
 )
-from sqlalchemy import desc
+from . import auth
+from sqlalchemy import desc, exc
+
 from .data import PRODUCTS
 
 """Init flask blue print"""
@@ -24,6 +30,7 @@ def stores():
 
 
 @storesBp.route('/create-product/', methods=['POST', 'GET'])
+@auth.login_required
 def create_product():
     """Create product route."""
     print(request.method)
@@ -32,7 +39,18 @@ def create_product():
         quantity = request.form['quantity']
         description = request.form['description']
         print(f'name:{name} qty:{quantity} descr:{description}')
-
+        try:
+            user_id = session['username']
+            usr = user.Users.query.get(user_id)
+            new_product = product.Product(
+                name=name, 
+                quantity=quantity,
+                description=description
+            )
+            usr.products.append(new_product)
+            db.database.commit_changes()
+        except (exc.SQLAlchemyError, Exception) as e:
+            print('something went wrong')
     return render_template('stores/createproduct.html')
 
 
