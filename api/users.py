@@ -15,8 +15,6 @@ class UsersAPI(views.MethodView):
 
     def get(self):
         """HTTP GET method."""
-        # products = product.Product.query.all()
-        # data = productSchema.PRODUCTS_SCHEMA.dump(products)
         users = user.Users.query.all()
         data = userSchema.USERS_SCHEMA.dump(users)
         return jsonify(data)
