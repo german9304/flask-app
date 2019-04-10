@@ -10,13 +10,15 @@ from ..models import (
 )
 
 
-class ProductsAPI(views.MethodView):
+class UsersAPI(views.MethodView):
     """Products RESTful API."""
 
     def get(self):
         """HTTP GET method."""
-        products = product.Product.query.all()
-        data = productSchema.PRODUCTS_SCHEMA.dump(products)
+        # products = product.Product.query.all()
+        # data = productSchema.PRODUCTS_SCHEMA.dump(products)
+        users = user.Users.query.all()
+        data = userSchema.USERS_SCHEMA.dump(users)
         return jsonify(data)
 
     def post(self):
