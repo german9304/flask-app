@@ -2,11 +2,7 @@ from flask import (
     request, views, redirect, jsonify
 )
 from shopcart.models import (
-    productSchema, userSchema
-)
-
-from ..models import (
-    product, user
+    productSchema, userSchema, product, user, review, reviewsSchema
 )
 
 
@@ -32,5 +28,6 @@ class UsersAPI(views.MethodView):
         pass
 
 
-def register_api():
-    return ''
+def register_user_api(app, endpoint, url='/api/users'):
+    view_func = UsersAPI.as_view(endpoint)
+    app.add_url_rule(url, view_func=view_func, methods=['GET'])

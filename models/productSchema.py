@@ -16,8 +16,8 @@ class ProductSchema(ma.ModelSchema):
         model = product.Product
         # exclude=('likes_assoc', 'products', 'reviews_assoc', )
     users = fields.Nested('UsersSchema', only=('email', 'id', 'username', ))
-    reviews_assoc = fields.Nested('ReviewSchema', many=True, 
-        only=('id', 'comment', 'created_on', ))
+    reviews_assoc = ma.Nested('ReviewSchema', many=True, 
+        exclude=('product_parent', ))
 
 PRODUCTS_SCHEMA = ProductSchema(many=True)
 PRODUCT_SCHEMA = ProductSchema()

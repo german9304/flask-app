@@ -4,7 +4,7 @@ from .views import (
     stores, auth
 )
 from .models.dbconfig import key
-from .api import products
+from .api import products, users
 
 def create_app():
     app = Flask(__name__)
@@ -14,5 +14,6 @@ def create_app():
     app.register_blueprint(auth.authBp)
     app.register_blueprint(stores.storesBp)
     app.add_url_rule('/', endpoint='home')
-    app.add_url_rule('/api/', view_func=products.ProductsAPI.as_view('api'))
+    products.register_product_api(app, 'api-products')
+    users.register_user_api(app, 'api-users')
     return app
