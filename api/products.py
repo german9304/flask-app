@@ -27,6 +27,7 @@ class ProductsAPI(views.MethodView):
             print(e)
             # return make_response()
             return jsonify({'user':'user'})
+        # print(resp)
         return resp
     
     # @handler_404
@@ -38,8 +39,9 @@ class ProductsAPI(views.MethodView):
             data = self.get_product(product_id)
             if data:
                 res = productSchema.PRODUCT_SCHEMA \
-                        .dump(self.get_product(product_id))
-                return jsonify(product=res)
+                        .dump(data)
+                # print(type(data))
+                return jsonify(data=res.data, errors=res.errors)
             else:
                 data = {'success':False, 'data':'user not found'}
                 header = {'content-type': 'application/json'}
@@ -52,6 +54,9 @@ class ProductsAPI(views.MethodView):
 
     def post(self, product_id):
         """HTTP POST method."""
+        res = request.json
+        print(res)
+        
         return jsonify(name='john', age=32)
 
     def put(self):
@@ -69,4 +74,4 @@ def register_product_api(app, endpoint, url='/api/products'):
     app.add_url_rule(url, view_func=view_func,
                     methods=['GET'])
     app.add_url_rule('/api/product/<int:product_id>/', view_func=view_func, 
-                    methods=['GET'])
+                    methods=['POST', 'PUT', 'DELETE', 'GET'])
