@@ -37,6 +37,7 @@ class ProductsAPI(views.MethodView):
     def get(self, product_id=None):
         """HTTP GET method."""
 
+        print(session['username'])
         if product_id:
             product_data = product.Product.query \
                 .filter(product.Product.id == product_id).first_or_404()
@@ -52,8 +53,8 @@ class ProductsAPI(views.MethodView):
     def post(self, product_id):
         """HTTP POST method."""
         user = None
-        if 'user' in session:
-            user = session['user']
+        if 'username' in session:
+            user = session['username']
         print(user)
         res = request.json['comment']
         rev = review.Reviews(product_id=product_id, user_id=user.id, 
