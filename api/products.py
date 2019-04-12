@@ -1,5 +1,10 @@
 from flask import (
-    request, views, redirect, jsonify, make_response, session
+    request, 
+    views, 
+    redirect, 
+    jsonify, 
+    make_response, 
+    session
 )
 from shopcart.models import (
     productSchema, 

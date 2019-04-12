@@ -1,0 +1,23 @@
+{
+  "name": "shopcart",
+  "version": "1.0.0",
+  "description": "## Tools:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/german9304/flask-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/german9304/flask-app/issues"
+  },
+  "homepage": "https://github.com/german9304/flask-app#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3"
+  }
+}
