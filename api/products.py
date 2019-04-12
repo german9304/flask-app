@@ -1,5 +1,5 @@
 from flask import (
-    request, views, redirect, jsonify, make_response
+    request, views, redirect, jsonify, make_response, session
 )
 from shopcart.models import (
     productSchema, 
@@ -32,7 +32,7 @@ def handler_404(func):
 
 class ProductsAPI(views.MethodView):
     """Products RESTful API."""
-
+    
     @handler_404
     def get(self, product_id=None):
         """HTTP GET method."""
@@ -51,9 +51,12 @@ class ProductsAPI(views.MethodView):
     @handler_404
     def post(self, product_id):
         """HTTP POST method."""
+        user = None
+        if 'user' in session:
+            user = session['user']
+        print(user)
         res = request.json['comment']
-        user_id = 2
-        rev = review.Reviews(product_id=product_id, user_id=user_id, 
+        rev = review.Reviews(product_id=product_id, user_id=user.id, 
                 comment=res)
         review_data = db.database.insert(rev)
         serialize_review = reviewsSchema.REVIEW_SCHEMA.dump(review_data)
