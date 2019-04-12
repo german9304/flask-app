@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+from flask_marshmallow import Marshmallow
 from .dbconfig import POSTGRES
 
 
@@ -8,13 +9,15 @@ class Database():
     def __init__(self):
         self.database = SQLAlchemy()
         self.uri = ''
+        self.ma = Marshmallow()
 
     def init_db(self, app):
         """Initialize db."""
         self.init_db_info(POSTGRES)
         app.config['SQLALCHEMY_DATABASE_URI'] = self.uri
         app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-        self.database.init_app(app)
+        self.database.init_app(app) # init flask alchemy
+        self.ma.init_app(app) # init flask marshmellow
 
     def init_db_info(self, postgres):
         """Init database info."""
@@ -28,6 +31,9 @@ class Database():
     def get_db(self):
         """Returns database."""
         return self.database
+    
+    def get_ma(self):
+        return self.ma
     
     def insert(self, row):
         db = self.get_db()
