@@ -14,7 +14,7 @@
       {% for product in products %}
       <section class="product">
         <h1 class="product-section-header">
-          <a class="select-product" href="/product/{{product.id}}">
+          <a class="select-product" href="/product/?id={{product.id}}">
             <span>{{ product.name }}</span>
           </a>
         </h1>

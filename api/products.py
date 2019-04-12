@@ -41,8 +41,7 @@ class ProductsAPI(views.MethodView):
     @handler_404
     def get(self, product_id=None):
         """HTTP GET method."""
-
-        print(session['username'])
+        
         if product_id:
             product_data = product.Product.query \
                 .filter(product.Product.id == product_id).first_or_404()
@@ -52,7 +51,7 @@ class ProductsAPI(views.MethodView):
 
         products_data = product.Product.query.all()
         serialize_products = productSchema.PRODUCTS_SCHEMA.dump(products_data)
-        return jsonify(data=serialize_products)
+        return jsonify(data=serialize_products.data)
 
     @handler_404
     def post(self, product_id):

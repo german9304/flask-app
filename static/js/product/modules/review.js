@@ -1,6 +1,5 @@
-function Review(review) {
-    return review;
-}
 
-const a = 32;
-a = 45;
+function createElementReviews() {
+
+}
+export default createElementReviews;

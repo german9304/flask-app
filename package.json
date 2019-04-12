@@ -18,11 +18,22 @@
   },
   "homepage": "https://github.com/german9304/flask-app#readme",
   "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-transform-runtime": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-runtime": "^6.26.0",
     "eslint": "^5.3.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
     "parcel-bundler": "^1.12.3"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.4.3",
+    "@babel/runtime-corejs2": "^7.4.3",
+    "babel-polyfill": "^6.26.0"
   }
 }
