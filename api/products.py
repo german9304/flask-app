@@ -79,18 +79,3 @@ def register_product_api(app, endpoint, url='/api/products'):
                     methods=['GET'])
     app.add_url_rule('/api/product/<int:product_id>/', view_func=view_func, 
                     methods=['POST', 'PUT', 'DELETE', 'GET'])
-
-
-
-#     try:
-#         product_data = product.Product.query. \
-#             filter(product.Product.id == product_id).one()
-#         res = productSchema.PRODUCT_SCHEMA \
-#                 .dump(product_data)
-#         return jsonify(data=res.data, errors=res.errors)
-#     except (exc.SQLAlchemyError, Exception) as e:
-#         # print(type(e))
-#         resp = {'success':False, 'data': ''}
-#         header = {'content-type': 'application/json'}
-#         res = (json.dumps(resp), 404, header)
-#         return make_response(res)
