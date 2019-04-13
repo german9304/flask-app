@@ -13,7 +13,7 @@
       </header>
       <!-- <section id="likes-area">
       </section> -->
-      <form action="" id="review-comments">
+      <form action="" id="form-review__comments">
           <section class="review-comments-textarea">
             <textarea name="comment" id="" cols="30" rows="3"></textarea>
           </section>
@@ -23,16 +23,6 @@
           </section>
       </form>
       <section id="product-reviews">
-        {% for review in reviews %}
-        <section class="review-content">
-            <section class="user-review">
-              <p>{{review.get_user().get_username()}}</p>
-            </section>
-            <section class="review">
-                <p>{{review.get_comment()}}</p>
-            </section>
-        </section>
-        {% endfor %}
       </section>
     </section>
   </section>

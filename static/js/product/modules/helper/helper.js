@@ -1,10 +1,12 @@
 
-
+/**
+ *
+ * @param {string} el element to create
+ * @param {object} props properties from object
+ */
 function createElement(el, props = {}) {
   const $el = document.createElement(el);
-  console.log(props);
   Object.keys(props).forEach((prop) => {
-    console.log(props);
     $el[prop] = props[prop];
   });
   return $el;

@@ -9,7 +9,7 @@ ma = database.get_ma()
 class UsersSchema(ma.ModelSchema):
     """Schema representation of User."""
     class Meta:
-        fields = ('email', 'username', 'products')
+        fields = ('id', 'email', 'username', 'products')
 
     products = ma.Nested('ProductSchema', many=True, exclude=('users', ))
     reviews_assoc = ma.Nested('ReviewSchema', many=True, 

@@ -4,7 +4,7 @@ import { get, post } from '../api/api';
  *
  * fetches products from api
  */
-async function ProductsAPI(url) {
+async function fetchProducts(url) {
   const data = get(url);
   return data;
 }
@@ -14,12 +14,12 @@ async function createProductAPI(url, options) {
   return data;
 }
 
-async function ProductAPI(url) {
+async function fetchProduct(url) {
   const data = get(url);
   return data;
 }
 
 
 export {
-  ProductsAPI, createProductAPI, ProductAPI,
+  fetchProducts, createProductAPI, fetchProduct,
 };
