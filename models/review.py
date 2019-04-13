@@ -17,10 +17,8 @@ class Reviews(model.Model):
     """Reviews Association Table."""
     __tablename__='reviews'
     id = model.Column(model.Integer, primary_key=True)
-    product_id = model.Column(model.Integer, ForeignKey('product.id'),
-                           nullable=False)
-    user_id = model.Column(model.Integer, ForeignKey('users.id'),
-                           nullable=False)
+    product_id = model.Column(model.Integer, ForeignKey('product.id'), nullable=False)
+    user_id = model.Column(model.Integer, ForeignKey('users.id'), nullable=False)
     comment = model.Column(model.String(200), nullable=False)
     created_on = model.Column(model.DateTime, default=date.today(), nullable=False)
     user_parent = model.relationship('Users', back_populates='reviews_assoc')

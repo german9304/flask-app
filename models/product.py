@@ -18,8 +18,7 @@ class Product(model.Model):
     likes = model.Column(model.Integer, default=0)
     description = model.Column(model.String(200), nullable=False)
     quantity = model.Column(model.Integer, nullable=False)
-    user_id = model.Column(model.Integer, ForeignKey('users.id'),
-                           nullable=False)
+    user_id = model.Column(model.Integer, ForeignKey('users.id'), nullable=False)
     likes_assoc = model.relationship('Likes', back_populates='product_parent')
     reviews_assoc = model.relationship('Reviews', back_populates='product_parent')
 

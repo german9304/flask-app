@@ -69,13 +69,14 @@ def top_products():
     }
     return render_template('stores/topstores.html', **context)
 
-@storesBp.route('/product/<int:product_id>/', methods=['GET'])
-def get_product(product_id):
-    print(f'product id is {product_id}')
+@storesBp.route('/product/', methods=['GET'])
+def get_product():
+    searchword = request.args.get('id', '')
+    print(f'search id {searchword}')
     try:
         # selected_product = product.Product.query.filter(product.Product.id == product_id) \
         #     .first()
-        selected_product = product.Product.query.get(product_id)
+        selected_product = product.Product.query.get(searchword)
 
         product_reviews = selected_product.get_reviews()
         # print(product_reviews)

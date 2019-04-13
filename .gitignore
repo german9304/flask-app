@@ -1,2 +1,5 @@
 **/__pycache__/
 **/dbconfig.py
+node_modules
+.cache
+dist
