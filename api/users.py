@@ -12,16 +12,19 @@ class UsersAPI(views.MethodView):
     def get(self, get_user):
         """HTTP GET method."""
         if get_user:
-            user_id = session['username']
-            user_data = user.Users.query.get(user_id)
-            serialize_user = userSchema.USER_SCHEMA.dump(user_data)
-            serialized = serialize_user.data
-            res_user = {
-                'id': serialized['id'],
-                'username': serialized['username'],
-                'email' : serialized['email']
-            }
-            return jsonify(res_user)
+            if 'username' in session:
+                user_id = session['username']
+                user_data = user.Users.query.get(user_id)
+                serialize_user = userSchema.USER_SCHEMA.dump(user_data)
+                serialized = serialize_user.data
+                res_user = {
+                    'id': serialized['id'],
+                    'username': serialized['username'],
+                    'email' : serialized['email']
+                }
+                return jsonify(data=res_user, succes=True)
+            else:
+                return jsonify(data='user not authenticated', success=False)
 
         users = user.Users.query.all()
         users_data = userSchema.USERS_SCHEMA.dump(users)

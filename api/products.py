@@ -56,16 +56,17 @@ class ProductsAPI(views.MethodView):
     @handler_404
     def post(self, product_id):
         """HTTP POST method."""
-        user = None
-        if 'username' in session:
-            user = session['username']
-        print(user)
-        res = request.json['comment']
-        rev = review.Reviews(product_id=product_id, user_id=user.id, 
-                comment=res)
-        review_data = db.database.insert(rev)
-        serialize_review = reviewsSchema.REVIEW_SCHEMA.dump(review_data)
-        return jsonify(data=serialize_review)
+        pass
+        # user = None
+        # if 'username' in session:
+        #     user = session['username']
+        # print(user)
+        # res = request.json['comment']
+        # rev = review.Reviews(product_id=product_id, user_id=user.id, 
+        #         comment=res)
+        # review_data = db.database.insert(rev)
+        # serialize_review = reviewsSchema.REVIEW_SCHEMA.dump(review_data)
+        # return jsonify(data=serialize_review)
 
     def put(self):
         """HTTP PUT METHOD."""
