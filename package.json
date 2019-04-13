@@ -4,8 +4,8 @@
   "description": "## Tools:",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel watch ./static/js/product/index.js --out-dir ./static/js/product/dist",
-    "prod": "parcel build ./static/js/product/index.js --out-dir ./static/js/product/build"
+    "dev": "parcel watch ./static/js/index.js --out-dir ./static/js/dist",
+    "prod": "parcel build ./static/js/index.js --out-dir ./static/js/build"
   },
   "repository": {
     "type": "git",
