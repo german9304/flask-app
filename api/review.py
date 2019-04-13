@@ -24,7 +24,7 @@ class ReviewAPI(views.MethodView):
                 rev = review.Reviews(product_id=product_id, user_id=user_id, comment=comment)
                 review_data = db.database.insert(rev)
                 serialize_review = reviewsSchema.REVIEW_SCHEMA.dump(review_data)
-                return jsonify(data=rev.id)
+                return jsonify(data=serialize_review.data)
         except Exception as e:
             return jsonify(success=False)
 

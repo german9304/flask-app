@@ -1,7 +1,12 @@
 // import Review from './modules/review';
 import { fetchProducts, fetchProduct } from './modules/products';
 import FetchUser from './modules/user';
-import { createReviewElements, createReview, createReviewAPI } from './modules/review';
+import {
+  createReviewElements,
+  createReview,
+  createReviewAPI,
+  createReviewElement,
+} from './modules/review';
 import spinner from './modules/spinner';
 
 
@@ -28,7 +33,6 @@ fetchProduct(`/api/product/${productId}`)
     const fragment = document.createDocumentFragment();
     const reviews = createReviewElements(data.reviews_assoc);
     reviews.forEach(review => fragment.appendChild(review));
-    // console.log(reviews);
     spinner.remove();
     productReviews.appendChild(fragment);
   });
@@ -43,20 +47,17 @@ FetchUser()
 
 function handleAddReview(e) {
   e.preventDefault();
-
-  import('./modules/sum')
-  .then(spin => {
-    console.log(spin);
-  })
-
   const { product } = state;
-  const data = new FormData(formReviewComments);
-  const review = createReview(data.get('comment'), product.id);
-  console.log(review);
+  const formData = new FormData(formReviewComments);
+  const review = createReview(formData.get('comment'), product.id);
   const reviewApi = createReviewAPI(review);
   reviewApi
-    .then(resp => console.log(resp))
+    .then(({ data }) => {
+      const createdReview = createReviewElement(data);
+      productReviews.appendChild(createdReview);
+    })
     .catch(() => console.log('error'));
 }
+
 
 formReviewComments.addEventListener('submit', handleAddReview);

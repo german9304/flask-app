@@ -9,8 +9,7 @@ async function get(url, options = {}) {
     method: 'GET',
     ...options,
   });
-  const jsonData = await data.json();
-  return jsonData;
+  return data.json();
 }
 
 /**
@@ -19,12 +18,11 @@ async function get(url, options = {}) {
  * @param {*} options defines http options
  */
 async function post(url, options = {}) {
-  const data = fetch(url, {
+  const data = await fetch(url, {
     method: 'POST',
     ...options,
   });
-  const jsonData = data.json();
-  return jsonData;
+  return data.json();
 }
 
 
