@@ -1,7 +1,7 @@
 // import Review from './modules/review';
 import { fetchProducts, fetchProduct } from './modules/products';
 import FetchUser from './modules/user';
-import createReviewElements from './modules/review';
+import { createReviewElements, createReview, createReviewAPI } from './modules/review';
 import spinner from './modules/spinner';
 
 
@@ -15,8 +15,6 @@ const productReviews = document.getElementById('product-reviews');
 const formReviewComments = document.getElementById('form-review__comments');
 
 productReviews.appendChild(spinner);
-
-// console.log(url.searchParams.get('id'));
 
 fetchProducts('/api/products')
   .then(data => console.log(data));
@@ -42,10 +40,23 @@ FetchUser()
   .catch(() => {
 
   });
+
 function handleAddReview(e) {
   e.preventDefault();
-  console.log('submited');
-  console.log(state);
+
+  import('./modules/sum')
+  .then(spin => {
+    console.log(spin);
+  })
+
+  const { product } = state;
+  const data = new FormData(formReviewComments);
+  const review = createReview(data.get('comment'), product.id);
+  console.log(review);
+  const reviewApi = createReviewAPI(review);
+  reviewApi
+    .then(resp => console.log(resp))
+    .catch(() => console.log('error'));
 }
 
 formReviewComments.addEventListener('submit', handleAddReview);

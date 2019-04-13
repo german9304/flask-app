@@ -16,14 +16,17 @@ class ReviewAPI(views.MethodView):
     def post(self):
         """Create Review."""
         user = None
-        if 'username' in session:
-            user = session['username']
-            comment = request.json['comment']
-            product_id = request.json['product']
-            rev = review.Reviews(product_id=product_id, user_id=user.id, comment=comment)
-            review_data = db.database.insert(rev)
-            serialize_review = reviewsSchema.REVIEW_SCHEMA.dump(review_data)
-            return jsonify(data=serialize_review.data)
+        try:
+            if 'username' in session:
+                user_id = session['username']
+                comment = request.json['comment']
+                product_id = request.json['product']
+                rev = review.Reviews(product_id=product_id, user_id=user_id, comment=comment)
+                review_data = db.database.insert(rev)
+                serialize_review = reviewsSchema.REVIEW_SCHEMA.dump(review_data)
+                return jsonify(data=rev.id)
+        except Exception as e:
+            return jsonify(success=False)
 
 
 def register_review_api(app, endpoint, url='/api/reviews'):

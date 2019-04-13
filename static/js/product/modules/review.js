@@ -1,5 +1,32 @@
 import { createElement } from './helper/helper';
+import { post } from '../api/api';
 
+
+/**
+ *
+ * @param {object} data comment to post
+ */
+async function createReviewAPI(data) {
+  const options = {
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  };
+  return post('/api/review/', options);
+}
+
+/**
+ *
+ * @param {string} comment comment to be created
+ * @param {number} id id from product
+ */
+function createReview(comment, id) {
+  return {
+    product: id,
+    comment,
+  };
+}
 /**
  *
  * @param {array} reviews reviews from product api
@@ -22,4 +49,8 @@ function createReviewElements(reviews) {
   });
   return elReviews;
 }
-export default createReviewElements;
+export {
+  createReviewElements,
+  createReviewAPI,
+  createReview,
+};
